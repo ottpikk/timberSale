@@ -1,5 +1,7 @@
 package model;
 
+
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,8 @@ public class Employee {
     private String name;
     private String email;
     private String phone;
+
+    @Transient
     @OneToMany
     @JoinTable(name = "orders_transporter")
     @JoinColumn(name = "employeeId", referencedColumnName = "employeeId")

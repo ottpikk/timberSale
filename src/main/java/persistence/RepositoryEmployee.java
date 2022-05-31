@@ -1,22 +1,23 @@
 package persistence;
 
-import model.Customer;
+
+import model.Employee;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class RepositoryCustomer {
+public class RepositoryEmployee {
 
     private EntityManager em;
 
-    public RepositoryCustomer(){
+    public RepositoryEmployee(){
         em = DBUtil.getEntityManager();
     }
 
     @SuppressWarnings("unchecked")
-    public List<Customer> listAllCustomers() {
-        return em.createQuery("Select f from Customer as f order by f.name asc")
+    public List<Employee> listAllEmployees() {
+        return em.createQuery("Select e from Employee as e order by e.employeeId asc")
                 .getResultList();
     }
 }

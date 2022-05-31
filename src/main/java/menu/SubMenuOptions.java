@@ -7,9 +7,16 @@ import java.util.Scanner;
 public class SubMenuOptions {
     boolean exit = false;
     private MenuCustomer menuCustomer;
+    private MenuOrder menuOrder;
+    private MenuEmployee menuEmployee;
+    private MenuMaterial menuMaterial;
+    private MenuSupplier menuSupplier;
+    private MenuPayment menuPayment;
+    private MenuTransporter menuTransporter;
 
     public SubMenuOptions() {
         this.menuCustomer = new MenuCustomer();
+        this.menuEmployee = new MenuEmployee();
     }
 
     private int menuOptions(Scanner input) {
@@ -17,10 +24,14 @@ public class SubMenuOptions {
         System.out.println("Main menu ");
         System.out.println("-------------------------------------------------------");
         System.out.println();
-        System.out.println("1: Sub Menu - Customer");
+        System.out.println("1: Sub Menu - Order");
         System.out.println("2: Sub Menu - Delivery");
-        System.out.println("3: Sub Menu - <NAME>");
-        System.out.println("4: Sub Menu - <NAME>");
+        System.out.println("3: Sub Menu - Payment");
+        System.out.println("4: Sub Menu - Material");
+        System.out.println("5: Sub Menu - Customer");
+        System.out.println("6: Sub Menu - Supplier");
+        System.out.println("7: Sub Menu - Transporter");
+        System.out.println("8: Sub Menu - Employee");
         System.out.println("100 - Quit");
         System.out.println("***************************************************");
 
@@ -33,7 +44,7 @@ public class SubMenuOptions {
             int userChoice = menuOptions(input);
             switch (userChoice) {
                 case 1:
-                    this.menuCustomer.menuChoice(input);
+                    this.menuOrder.menuChoice(input);
                     break;
                 case 2:
                     break;
@@ -42,12 +53,14 @@ public class SubMenuOptions {
                 case 4:
                     break;
                 case 5:
+                    this.menuCustomer.menuChoice(input);
                     break;
                 case 6:
                     break;
                 case 7:
                     break;
                 case 8:
+                    this.menuEmployee.menuChoice(input);
                     break;
                 case 9:
                     break;
