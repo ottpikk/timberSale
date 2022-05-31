@@ -2,8 +2,6 @@ package model;
 
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Customer {
@@ -15,6 +13,10 @@ public class Customer {
     private String phone;
     private String email;
     private String deliveryAddress;
+
+    public void Customer(){
+
+    }
 
     public int getCustomerId() {
         return customerId;
