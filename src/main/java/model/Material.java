@@ -1,6 +1,12 @@
 package model;
 
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+
+
 import javax.persistence.*;
+import java.util.Date;
+
 
 @Entity
 public class Material {
@@ -15,6 +21,11 @@ public class Material {
     private String unit;
     private double price;
     private double amountInStock;
+
+    @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
+    @Generated(GenerationTime.INSERT)
+    private Date dateOfRegister;
+
     @ManyToOne
     @JoinColumn(name = "supplierId")
     private Supplier supplier;
@@ -102,6 +113,7 @@ public class Material {
                 ", unit='" + unit + '\'' +
                 ", price=" + price +
                 ", amountInStock=" + amountInStock +
+                ", dateOfRegister=" + dateOfRegister +
                 ", supplier=" + supplier +
                 '}';
     }

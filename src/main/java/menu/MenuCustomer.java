@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuCustomer {
+    Scanner sc = new Scanner(System.in);
 
 
     RepositoryCustomer repositoryCustomer = new RepositoryCustomer();
@@ -17,7 +18,7 @@ public class MenuCustomer {
         System.out.println("-------------------------\n");
         System.out.println();
         System.out.println("1: List all customers");
-        System.out.println("2: Update account status");
+        System.out.println("2: Add new customer");
         System.out.println("3: List total active customers");
         System.out.println("4: List total active and not active customers");
         System.out.println("5: Update customers phone number by customer id");
@@ -36,6 +37,7 @@ public class MenuCustomer {
                     menuListAllCustomers(input);
                     break;
                 case 2:
+                    menuAddCustomer();
                     break;
                 case 3:
                     break;
@@ -68,5 +70,19 @@ public class MenuCustomer {
             System.out.println("\nNo customers registered\n");
             menuOptions(input);
         }
+    }
+
+    private void menuAddCustomer(){
+        Customer customer = new Customer();
+        System.out.println("Enter name\n");
+        customer.setName(sc.nextLine());
+        System.out.println("Enter phone number:\n");
+        customer.setPhone(sc.nextLine());
+        System.out.println("Enter email:\n");
+        customer.setEmail(sc.nextLine());
+        System.out.println("Enter deliveryAddress\n");
+        customer.setDeliveryAddress(sc.nextLine());
+
+        repositoryCustomer.addCustomer(customer);
     }
 }

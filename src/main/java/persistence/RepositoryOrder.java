@@ -1,5 +1,6 @@
 package persistence;
 
+
 import model.Order;
 import util.DBUtil;
 
@@ -18,5 +19,16 @@ public class RepositoryOrder {
     public List<Order> listAllOrders() {
         return em.createQuery("Select f from Order as f order by f.orderId asc")
                 .getResultList();
+    }
+
+    public void addOrder(Order order){
+        try {
+            this.em.getTransaction().begin();
+            this.em.persist(order);
+            this.em.getTransaction().commit();
+            System.out.println("New order added:\n\t"+order.toString());
+        } catch (Exception e){
+            this.em.getTransaction().rollback();
+        }
     }
 }

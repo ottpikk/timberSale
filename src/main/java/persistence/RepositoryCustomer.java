@@ -16,7 +16,18 @@ public class RepositoryCustomer {
 
     @SuppressWarnings("unchecked")
     public List<Customer> listAllCustomers() {
-        return em.createQuery("Select f from Customer as f order by f.name asc")
+        return em.createQuery("Select f from Customer as f order by f.customerId asc")
                 .getResultList();
+    }
+
+    public void addCustomer(Customer customer){
+        try {
+            this.em.getTransaction().begin();
+            this.em.persist(customer);
+            this.em.getTransaction().commit();
+            System.out.println("New customer added:\n\t"+customer.toString());
+        } catch (Exception e){
+            this.em.getTransaction().rollback();
+        }
     }
 }
