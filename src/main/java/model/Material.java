@@ -5,7 +5,8 @@ import org.hibernate.annotations.GenerationTime;
 
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 
 @Entity
@@ -21,10 +22,7 @@ public class Material {
     private String unit;
     private double price;
     private double amountInStock;
-
-    @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
-    @Generated(GenerationTime.INSERT)
-    private Date dateOfRegister;
+    private LocalDate dateOfRegister;
 
     @ManyToOne
     @JoinColumn(name = "supplierId")
@@ -100,6 +98,14 @@ public class Material {
 
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
+    }
+
+    public LocalDate getDateOfRegister() {
+        return dateOfRegister;
+    }
+
+    public void setDateOfRegister(LocalDate dateOfRegister) {
+        this.dateOfRegister = dateOfRegister;
     }
 
     @Override

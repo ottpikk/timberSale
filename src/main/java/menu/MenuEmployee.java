@@ -53,8 +53,6 @@ public class MenuEmployee {
         } while (userChoice != 100);
     }
 
-
-
     private void menuListAllEmployees(Scanner input) {
         List<Employee> listEmployee = repositoryEmployee.listAllEmployees();
 

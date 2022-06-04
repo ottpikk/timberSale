@@ -1,7 +1,5 @@
 package menu;
 
-
-import util.DBUtil;
 import java.util.Scanner;
 
 public class SubMenuOptions {
@@ -17,6 +15,8 @@ public class SubMenuOptions {
     public SubMenuOptions() {
         this.menuCustomer = new MenuCustomer();
         this.menuEmployee = new MenuEmployee();
+        this.menuTransporter = new MenuTransporter();
+        this.menuMaterial = new MenuMaterial();
     }
 
     private int menuOptions(Scanner input) {
@@ -51,6 +51,7 @@ public class SubMenuOptions {
                 case 3:
                     break;
                 case 4:
+                    this.menuMaterial.menuChoice(input);
                     break;
                 case 5:
                     this.menuCustomer.menuChoice(input);
@@ -58,6 +59,7 @@ public class SubMenuOptions {
                 case 6:
                     break;
                 case 7:
+                    this.menuTransporter.menuChoice(input);
                     break;
                 case 8:
                     this.menuEmployee.menuChoice(input);
@@ -65,7 +67,6 @@ public class SubMenuOptions {
                 case 9:
                     break;
                 case 10:
-
                     break;
                 case 100:
                     exit = true;
